@@ -3,17 +3,17 @@ pipeline{
     stages{
         stage('first stage'){
             steps{
-               sh echo "Hello world"
+               echo "Hello world"
             }
         }
         stage('clean artifact'){
             steps{
-               sh echo "Hello and hi"
+               echo "Hello and hi"
             }
         }
         stage('clean what'){
             steps{
-               sh echo "Hello world2"
+               echo "Hello world2"
             }
         }
     }
