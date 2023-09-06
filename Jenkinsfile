@@ -1,19 +1,19 @@
 pipeline{
     agent any
     stages{
-        stage('first stage'){
+        stage('maven clean'){
             steps{
-               echo "Hello world"
+               sh 'mvn clean'
             }
         }
-        stage('clean artifact'){
+        stage('maven install'){
             steps{
-               echo "Hello and hi"
+               sh 'mvn install'
             }
         }
-        stage('clean what'){
+        stage('maven package'){
             steps{
-               echo "Hello world2"
+               sh 'mvn package'
             }
         }
     }
