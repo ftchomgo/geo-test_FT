@@ -2,17 +2,17 @@ pipeline{
     agent any
     stages{
         stage('first stage'){
-            step{
+            steps{
                sh echo "Hello world"
             }
         }
         stage('clean artifact'){
-            step{
+            steps{
                sh echo "Hello and hi"
             }
         }
         stage('clean what'){
-            step{
+            steps{
                sh echo "Hello world2"
             }
         }
