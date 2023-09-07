@@ -27,7 +27,7 @@ pipeline{
                nexusArtifactUploader artifacts: [[artifactId: 'bioMedical', 
                classifier: '', file: 'target/bioMedical-0.0.1-SNAPSHOT.jar',
                 type: 'jar']], credentialsId: 'nexusID', groupId: 'QA',
-                 nexusUrl: ${nexus_url},
+                 nexusUrl: "${nexus_url}",
                   nexusVersion: 'nexus3', protocol: 'http', repository: 'FT_repo', 
                   version: '0.0.1'
             }
