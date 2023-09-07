@@ -21,7 +21,12 @@ pipeline{
         }
         stage('upload artifact'){
             steps{
-               sh 'curl --upload-file target/bioMedical-0.0.1-SNAPSHOT.jar -u admin:devops -v http://198.58.119.40:8081/repository/FT_repo/'
+               nexusArtifactUploader artifacts: [[artifactId: 'bioMedical', 
+               classifier: '', file: 'target/bioMedical-0.0.1-SNAPSHOT.jar',
+                type: 'jar']], credentialsId: 'nexusID', groupId: 'QA',
+                 nexusUrl: '198.58.119.40:8081/repository/FT_repo/',
+                  nexusVersion: 'nexus3', protocol: 'http', repository: 'FT_repo', 
+                  version: '0.0.1'
             }
         }
     }
