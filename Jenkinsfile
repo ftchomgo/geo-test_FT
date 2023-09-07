@@ -3,6 +3,9 @@ pipeline{
     tools{
         maven 'M2_HOME'
     }
+    environment{
+        nexus_url = '198.58.119.40:8081/repository/FT_repo/'
+    }
     stages{
         stage('maven clean'){
             steps{
@@ -24,7 +27,7 @@ pipeline{
                nexusArtifactUploader artifacts: [[artifactId: 'bioMedical', 
                classifier: '', file: 'target/bioMedical-0.0.1-SNAPSHOT.jar',
                 type: 'jar']], credentialsId: 'nexusID', groupId: 'QA',
-                 nexusUrl: '198.58.119.40:8081/repository/FT_repo/',
+                 nexusUrl: ${nexus_url},
                   nexusVersion: 'nexus3', protocol: 'http', repository: 'FT_repo', 
                   version: '0.0.1'
             }
